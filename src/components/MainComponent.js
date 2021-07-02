@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Directory from './DirectoryComponent';
-import { CAMPSITES } from '../shared/campsites';
 import CampsiteInfo from './CampsiteInfoComponent';
 import Header from "./HeaderComponent";
 import Footer from './FooterComponent';
@@ -9,9 +8,7 @@ import Contact from './ContactComponent';
 import About from "./AboutComponent";
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { COMMENTS } from '../shared/comments';
-import { PARTNERS } from '../shared/partners';
-import { PROMOTIONS } from '../shared/promotions';
+
 
 const mapStateToProps = state => {
     return {
