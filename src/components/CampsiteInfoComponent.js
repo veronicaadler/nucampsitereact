@@ -1,8 +1,17 @@
-import React from 'react';
-import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import React, { Component } from 'react';
+import { Card, CardImg, CardText, CardBody, Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
- 
+class CommentForm extends Component {
+    render() {
+        return(
+            <Button outline>
+                <i className="fa fa-pencil fa-lg" />Submit Comment
+            </Button>
+        )
+    }
+
+}
 
  function RenderComments({comments}) {
         if (comments) {
@@ -13,6 +22,7 @@ import { Link } from 'react-router-dom';
                     <div key={comment.id}>
                     <p className="mb-0 pb-0">{comment.text}</p>
                     <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                    <CommentForm />
                 </div>
                 )}
                 )
