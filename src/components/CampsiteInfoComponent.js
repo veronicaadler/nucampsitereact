@@ -51,7 +51,8 @@ class CommentForm extends Component {
                         </div>
                         <div className="form-group">
                         <Label htmlFor="author">Your Name</Label>
-                        <Control.text model=".author" id="author" className="form-control" 
+                        <Control.text model=".author" id="author" className="form-control"
+                        placeholder="Your Name"
                         validators={{
                             minLength: minLength(2),
                             maxLength: maxLength(15)
