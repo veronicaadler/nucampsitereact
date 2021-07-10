@@ -4,7 +4,7 @@ import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform } from 'react-animation-components';
 
-function RenderCard({item, isLoading, errMess}) {
+function RenderCard({ item, isLoading, errMess }) {
     if (isLoading) {
         return <Loading />;
     }
@@ -15,12 +15,12 @@ function RenderCard({item, isLoading, errMess}) {
         <FadeTransform
             in
             transformProps={{
-                exitTransform: 'scale(2) translateY(50%)'
+                exitTransform: 'scale(.5) translateY(50%)'
             }}>
             <Card>
                 <CardImg src={baseUrl + item.image} alt={item.name} />
                 <CardBody>
-                    <CardTitle>{item.name}</CardTitle>
+                    <CardTitle>{item.title}</CardTitle>
                     <CardText>{item.description}</CardText>
                 </CardBody>
             </Card>
@@ -46,7 +46,10 @@ function Home(props) {
                     />
                 </div>
                 <div className="col-md m-1">
-                    <RenderCard item={props.partner} />
+                    <RenderCard 
+                    item={props.partner}
+                    isLoading={props.partnersLoading}
+                    errMess={props.partnersErrMess} />
                 </div>
             </div>
         </div>
