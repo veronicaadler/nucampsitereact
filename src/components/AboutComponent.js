@@ -3,6 +3,7 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import { Loading } from './LoadingComponent';
+import { Fade, Stagger } from 'react-animation-components';
 
 
 
@@ -86,9 +87,11 @@ function PartnerList(props) {
     const partners = props.partners.partners.map(partner => {
         return (
             <div className="col mt-4">
-                <Media tag="li" key={partner.id}>
-                <RenderPartner partner={partner} />
-                </Media>
+                <Fade in key={partner.id}>
+                    <Media tag="li">
+                    <RenderPartner partner={partner} />
+                    </Media>
+                </Fade>
             </div>
         );
     });
@@ -96,15 +99,18 @@ function PartnerList(props) {
             return <Loading />;
         }
         if (props.partners.errMess) {
-            return (<div className="col">
-                        <h4>{props.partners.errMess}</h4>
-                    </div>
+            return (
+                <div className="col">
+                    <h4>{props.partners.errMess}</h4>
+                </div>
             );
         }
         return (
             <div className="col mt-4">
                 <Media list>
-                    {partners}
+                    <Stagger in>
+                        {partners}
+                    </Stagger>
                 </Media>
             </div>
         )
